@@ -87,7 +87,6 @@ const App = () => {
       await listConnectionNames();
     };
 
-    console.log('token', JSON.stringify(window.gapi.client.getToken()));
     console.log('API_KEY', JSON.stringify(API_KEY));
     console.log('CLIENT_ID', JSON.stringify(CLIENT_ID));
 
@@ -143,6 +142,8 @@ const App = () => {
         users = response.result.people.map(person => ({ email: person.emailAddresses[0].value, name: person.names[0].displayName }));
         setImportMode('Fetch from Google Directory')
       }
+
+      console.log('token', JSON.stringify(window.gapi.client.getToken()));
     } catch (err) {
       console.error('Error:', err.message);
       return;

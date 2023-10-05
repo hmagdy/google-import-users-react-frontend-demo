@@ -87,6 +87,10 @@ const App = () => {
       await listConnectionNames();
     };
 
+    console.log('token', JSON.stringify(window.gapi.client.getToken()));
+    console.log('API_KEY', JSON.stringify(API_KEY));
+    console.log('CLIENT_ID', JSON.stringify(CLIENT_ID));
+
     if (window.gapi.client.getToken() === null) {
       tokenClient.requestAccessToken({ prompt: 'consent' });
     } else {
